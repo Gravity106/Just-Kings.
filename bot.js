@@ -318,24 +318,8 @@ client.on('message', async message => {
 });
 
 
-const fs = require('fs');
 
-client.on('guildMemberRemove', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `MEMBER_KICK`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {  // كود منع الجحفلة حصري
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
+
                 data[ss.executor.id].time = 0
             });
         setTimeout(function(){
