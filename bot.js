@@ -26,7 +26,7 @@ client.user.setGame(`Just Kings.`,"http://twitch.tv/S-F")
   console.log('╚[════════════]╝')
   console.log('')
   console.log('')
-});
+});    
 
 
         
@@ -37,7 +37,7 @@ client.user.setGame(`Just Kings.`,"http://twitch.tv/S-F")
 
   
                       
-              .
+              
               
               
 
