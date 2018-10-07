@@ -679,7 +679,6 @@ client.on("message", (message) => {
 })
 
 
-const fs = require("fs");
 var json = JSON.parse(fs.readFileSync("json.json", "utf8"));
 
 client.on("message", (message) => {
