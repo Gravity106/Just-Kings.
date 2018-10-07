@@ -318,6 +318,8 @@ client.on('message', async message => {
 });
 
 
+const fs = require('fs');
+
 client.on('guildMemberRemove', (u) => {
     u.guild.fetchAuditLogs().then( s => {
         var ss = s.entries.first();
@@ -372,7 +374,8 @@ u.guild.members.get(ss.executor.id).roles.forEach(r => {
         },60000)
     };
     });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
+    
+  fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
         if (err) console.log(err.message);
     }); // الفا كودي
 });
