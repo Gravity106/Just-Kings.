@@ -306,13 +306,15 @@ client.on('roleDelete', role => {
 });
 
 
-
-
-
+client.on('roleUpdate', (oldRole, newRole) => {
  
-   client.on('roleUpdate', (oldRole, newRole) => {
+    if(!oldRole.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
+    if(!oldRole.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
  
-    if(!oldRole.guild.fetchAuditLogs().then(logs => {
+    var logChannel = oldRole.guild.channels.find(c => c.name === 'log');
+    if(!logChannel) return;
+ 
+    oldRole.guild.fetchAuditLogs().then(logs => {
         var userID = logs.entries.first().executor.id;
         var userAvatar = logs.entries.first().executor.avatarURL;
  
@@ -361,6 +363,13 @@ client.on('roleDelete', role => {
         }
     })
 });
+
+
+ 
+   
+            
+
+          
  
  
 // Channels Log
